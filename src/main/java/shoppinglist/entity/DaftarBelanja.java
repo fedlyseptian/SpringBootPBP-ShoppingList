@@ -12,7 +12,7 @@ import javax.persistence.*;
 
 /**
  *
- * @author irfin
+ * @author fedlyseptian
  */
 @Entity
 @Table(name = "daftarbelanja")
@@ -85,5 +85,31 @@ public class DaftarBelanja
         this.daftarBrg = _daftarBrg;
 //        for (int i = 0; i < daftarBrg.size(); i++)
 //            daftarBrg.get(i).setInduk(this);
+    }
+
+    public DaftarBelanjaDetil getBarang(int noUrut)
+    {
+        for (DaftarBelanjaDetil barang : daftarBrg)
+        {
+            if (barang.getId().getNoUrut() == noUrut)
+            {
+                return barang;
+            }
+        }
+        return null;
+    }
+
+    public void setBarang(DaftarBelanjaDetil daftarBarang, int noUrut)
+    {
+        for (DaftarBelanjaDetil barang : daftarBrg)
+        {
+            if (barang.getId().getNoUrut() == noUrut)
+            {
+                barang.setNamaBarang(daftarBarang.getNamaBarang());
+                barang.setByk(daftarBarang.getByk());
+                barang.setSatuan(daftarBarang.getSatuan());
+                barang.setMemo(daftarBarang.getMemo());
+            }
+        }
     }
 }

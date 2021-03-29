@@ -16,7 +16,7 @@ import javax.persistence.Transient;
 
 /**
  *
- * @author irfin
+ * @author fedlyseptian
  */
 @Entity
 @Table(name = "daftarbelanjadetil")
@@ -76,6 +76,11 @@ public class DaftarBelanjaDetil
     {
         noUrut = _noUrut;
         id.setNoUrut(noUrut);
+    }
+
+    public DaftarBelanjaDetilId getId()
+    {
+        return id;
     }
 
     public String getNamaBarang()
